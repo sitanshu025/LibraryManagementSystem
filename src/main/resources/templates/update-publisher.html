@@ -13,8 +13,10 @@
 <body>
 	<div th:insert="fragments/header :: header"></div>
     <div class="container my-5">
-        <h3>Update Publisher</h3>
         <div class="card">
+            <div class="card-header">
+                <h2>Update Publisher</h2>
+            </div>
             <div class="card-body">
                 <div class="col-md-10">
                     <form action="#" th:action="@{/update-publisher/{id}(id=${publisher.id})}" th:object="${publisher}" method="post">
