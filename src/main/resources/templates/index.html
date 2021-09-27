@@ -13,15 +13,20 @@
 
 <body>
 	<div th:insert="fragments/header :: header"></div>
-	<div class="container my-2">
+	<div class="container mt-5">
+		<div class="row my-5">
+			<div class="col">
+				<h1 class="text-center">Welcome to  Library Management System!</h1>
+			</div>
+		</div>
 		<div class="row my-5">
 			<div class="card mx-auto border-primary rounded" style="width: 18rem;">
 				<div class="card-header bg-primary text-white">
 					<h3 class="text-center">Books</h3>
 				</div>
 				<div class="card-body">
-					<a href="#" class="stretched-link text-dark" style="text-decoration: none">
-						<h1 class="align-middle text-center display-1 font-weight-bold text-secondary">6</h1>
+					<a href="/books" class="stretched-link text-dark" style="text-decoration: none">
+						<h1 class="align-middle text-center display-1 font-weight-bold text-secondary" th:text="${bookCount}"/>
 					</a>
 				</div>
 			</div>
@@ -30,8 +35,8 @@
 					<h3 class="text-center">Authors</h3>
 				</div>
 				<div class="card-body">
-					<a href="#" class="stretched-link text-dark" style="text-decoration: none">
-						<h1 class="align-middle text-center display-1 font-weight-bold text-secondary">6</h1>
+					<a href="/authors" class="stretched-link text-dark" style="text-decoration: none">
+						<h1 class="align-middle text-center display-1 font-weight-bold text-secondary" th:text="${authorCount}"/>
 					</a>
 				</div>
 			</div>
@@ -42,8 +47,8 @@
 					<h3 class="text-center">Categories</h3>
 				</div>
 				<div class="card-body">
-					<a href="#" class="stretched-link text-dark" style="text-decoration: none">
-						<h1 class="align-middle text-center display-1 font-weight-bold text-secondary">6</h1>
+					<a href="/categories" class="stretched-link text-dark" style="text-decoration: none">
+						<h1 class="align-middle text-center display-1 font-weight-bold text-secondary" th:text="${categoryCount}"/>
 					</a>
 				</div>
 			</div>
@@ -52,8 +57,8 @@
 					<h3 class="text-center">Publishers</h3>
 				</div>
 				<div class="card-body">
-					<a href="#" class="stretched-link text-dark" style="text-decoration: none">
-						<h1 class="align-middle text-center display-1 font-weight-bold text-secondary">6</h1>
+					<a href="/publishers" class="stretched-link text-dark" style="text-decoration: none">
+						<h1 class="align-middle text-center display-1 font-weight-bold text-secondary" th:text="${publisherCount}"/>
 					</a>
 				</div>
 			</div>
