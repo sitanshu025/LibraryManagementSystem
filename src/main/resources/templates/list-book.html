@@ -11,11 +11,11 @@
 	
 </head>
 <body>
-	<div th:insert="fragments/header :: header"></div>
+	<div th:insert="fragments/admin-header :: header"></div>
 	<div class="container my-2">
 		<div class="card">
 			<div class="card-header">
-				<h2>"${book.categories[0].name}"</h2>
+				<h2 th:text="${book.name}"/>
 			</div>
 			<div class="card-body">
 				<div class="container my-5">
@@ -31,6 +31,8 @@
 										<th>Publisher Name</th>
 										<th>Serial Name</th>
 										<th>Description</th>
+										<th>Quantity</th>
+										<th>Available</th>
 								</tr>
 								</thead>
 								<tbody>
@@ -42,6 +44,8 @@
 										<td th:text="${book.publishers[0].name}"></td>
 										<td th:text="${book.serialName}"></td>
 										<td th:text="${book.description}"></td>
+										<td th:text="${book.quantity}"></td>
+										<td th:text="${book.availableQuantity}"></td>
 									</tr>
 								</tbody>
 							</table>

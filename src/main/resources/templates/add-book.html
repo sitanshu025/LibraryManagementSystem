@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<div th:insert="fragments/header :: header"></div>
+	<div th:insert="fragments/admin-header :: header"></div>
 	<div class="container my-5">
 		<div class="card">
 			<div class="card-header">
@@ -66,6 +66,11 @@
 								<select th:field ="*{publishers}" class="form-control" >
    									<option th:each="publisher: ${publishers}" th:value="${publisher.id}" th:text = "${publisher.name}"></option>
 								</select>
+							</div>
+
+							<div class="form-group col-md-8">
+								<label for="quantity" class="col-form-label">Quantity</label>
+								<input type="text" th:field="*{quantity}" class="form-control" id="quantity" placeholder="Quantity" />
 							</div>
 							
 							<div class="col-md-6">

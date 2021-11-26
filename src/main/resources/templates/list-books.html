@@ -11,7 +11,7 @@
 	
 </head>
 <body>
-	<div th:insert="fragments/header :: header"></div>
+	<div th:insert="fragments/admin-header :: header"></div>
 	<div class="container my-2">
 		<div class="card">
 			<div class="card-header">
@@ -33,9 +33,12 @@
 										<th>Book Name</th>
 										<th>Serial Name</th>
 										<th>Description</th>
-										<th>Detail</th>
-										<th>Edit</th>
-										<th>Delete</th>
+										<th>Quantity</th>
+										<th>Available</th>
+										<th th:if="${user.type} == 'ADMIN'">Detail</th>
+										<th th:if="${user.type} == 'ADMIN'">Edit</th>
+										<th th:if="${user.type} == 'ADMIN'">Delete</th>
+										<th th:if="${user.type} == 'USER'">Action</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -44,9 +47,12 @@
 										<td th:text="${book.name}"></td>
 										<td th:text="${book.serialName}"></td>
 										<td th:text="${book.description}"></td>
-										<td><a th:href="@{/book/{id}(id=${book.id})}" class="btn btn-primary"><i class="fas fa-marker ml-2"></i></a></td>
-										<td><a th:href="@{/update/{id}(id=${book.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
-										<td><a th:href="@{/remove-book/{id}(id=${book.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+										<td th:text="${book.quantity}"></td>
+										<td th:text="${book.availableQuantity}"></td>
+										<td><a th:if="${user.type} == 'ADMIN'" th:href="@{/book/{id}(id=${book.id})}" class="btn btn-primary"><i class="fas fa-marker ml-2"></i></a></td>
+										<td><a th:if="${user.type} == 'ADMIN'" th:href="@{/update/{id}(id=${book.id})}" class="btn btn-primary"><i class="fas fa-user-edit ml-2"></i></a></td>
+										<td><a th:if="${user.type} == 'ADMIN'" th:href="@{/remove-book/{id}(id=${book.id})}" class="btn btn-primary"><i class="fas fa-user-times ml-2"></i></a></td>
+										<td><a th:if="${user.type} == 'USER'" th:href="@{/borrowBook/{id}(id=${book.id})/{userEmail}(userEmail=${user.email})}" class="btn btn-primary">Borrow</a></td>
 									</tr>
 								</tbody>
 							</table>
